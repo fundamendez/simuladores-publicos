@@ -6,4 +6,4 @@ Este simulador permite operar de manera interactiva con las estructuras de datos
 
 Mediante su motor de reproducción paso a paso, ilustra el conjunto mínimo de operaciones de cada TDA, mostrando cómo se manipula la memoria, se enlazan nodos y se actualizan los punteros principales (Frente, Final, Tope).
 
-🔗 **[Link al simulador](TBC)**
+🔗 **[Link al simulador](https://fundamendez.github.io/simuladores-publicos/simulador-tdas/index.html)**

@@ -4,4 +4,4 @@ Una herramienta visual diseñada para la materia **Fundamentos de la Programaci�
 
 Este simulador permite analizar en tiempo real el comportamiento de los algoritmos de búsqueda en vectores (Lineal y Binaria). Mediante su ejecución paso a paso y mensajes de estado.
 
-🔗 **[Link al simulador](TBC)**
+🔗 **[Link al simulador](https://fundamendez.github.io/simuladores-publicos/simulador-busquedas/index.html)**
