@@ -1,0 +1,198 @@
+/* =============================
+   ESTILOS GLOBALES Y NAVEGACIÓN
+   ============================= */
+body {
+    font-family: sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-volver-sim {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #242424;
+    color: #a0a0a0;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    border: 1px solid #333;
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.btn-volver-sim:hover {
+    background-color: #333;
+    color: #ffffff;
+    border-color: #555;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ==============================
+   ESTRUCTURA PRINCIPAL Y PANELES
+   ============================== */
+.container {
+    max-width: 900px;
+    margin: 4rem auto 2rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.controls-panel {
+    background-color: #242424;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.search-group {
+    border-left: 2px solid #444;
+    padding-left: 1.5rem;
+}
+
+/* ================
+   BOTONES E INPUTS
+   ================ */
+button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+button:hover:not(:disabled) {
+    background-color: #444;
+    border-color: #00f3ff;
+    box-shadow: 0 0 8px rgba(0, 243, 255, 0.3);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-accion {
+    border-color: #00ff73;
+}
+.btn-accion:hover:not(:disabled) {
+    box-shadow: 0 0 8px rgba(0, 255, 115, 0.3);
+}
+
+.btn-alg {
+    border-color: #ff003c;
+}
+.btn-alg:hover:not(:disabled) {
+    box-shadow: 0 0 8px rgba(255, 0, 60, 0.3);
+}
+
+input[type="number"] {
+    background-color: #1a1a1a;
+    color: white;
+    border: 1px solid #555;
+    padding: 0.5rem;
+    border-radius: 4px;
+    width: 60px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* =========================
+   CONTROLES DE REPRODUCCIÓN
+   ========================= */
+.playback-controls {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px dashed #555;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-play { background-color: #00ff73; color: #1a1a1a; border-color: #00ff73; }
+.btn-play:hover:not(:disabled) { background-color: #00cc5c; border-color: #00cc5c; box-shadow: 0 0 10px rgba(0, 255, 115, 0.4); }
+.btn-play.pausado { background-color: #ffea00; color: #1a1a1a; border-color: #ffea00; }
+.btn-play.pausado:hover:not(:disabled) { background-color: #e6d300; box-shadow: 0 0 10px rgba(255, 234, 0, 0.4); }
+.btn-step { background-color: #242424; border-color: #00f3ff; }
+.btn-cancel { background-color: #242424; border-color: #ff003c; margin-left: 1rem; }
+
+/* ===========================
+   ESTADO Y ÁREA DE SIMULACIÓN
+   =========================== */
+.status-message {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 1rem;
+    height: 1.5rem;
+    font-weight: bold;
+}
+
+.bars-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 350px;
+    gap: 8px;
+    padding: 20px;
+    background-color: #242424;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.bar {
+    width: 40px;
+    background-color: #00f3ff;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 5px;
+    color: #1a1a1a;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    min-height: 25px; 
+}
+
+/* ================
+   CLASES DINÁMICAS
+   ================ */
+.bar.comparando {
+    background-color: #ffea00; 
+    color: #000;
+    transform: scaleY(1.05);
+}
+
+.bar.descartado {
+    background-color: #555;
+    opacity: 0.3;
+    color: #888;
+}
+
+.bar.encontrado {
+    background-color: #00ff73; 
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 255, 115, 0.8);
+}

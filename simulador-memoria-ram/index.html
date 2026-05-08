@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Memoria RAM</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+</head>
+<body>
+    <a href="../index.html" class="btn-volver-sim">⬅ Volver al Menú</a>
+    <svg id="svgLayer">
+        <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#4a90e2" />
+            </marker>
+        </defs>
+        <line id="pointerArrow" x1="0" y1="0" x2="0" y2="0" stroke="#4a90e2" stroke-width="3" marker-end="url(#arrowhead)" opacity="0" style="transition: opacity 0.2s;" />
+    </svg>
+
+    <div class="container">
+        <h1>Simulador de Memoria RAM</h1>
+        <div class="info-panel">
+            Haz clic en cualquier celda para editar su valor manualmente.
+        </div>
+
+        <div class="toggle-container">
+            <label class="switch">
+                <input type="checkbox" id="hexToggle" checked>
+                <span class="slider"></span>
+            </label>
+            <span>Ver valores numéricos como Hexadecimal</span>
+        </div>
+
+        <div class="ram-grid" id="ramGrid"></div>
+
+        <div class="controls">
+            <button onclick="crearInt()">Crear int</button>
+            <button onclick="crearChar()">Crear char</button>
+            <button onclick="crearVector()">Crear vector (int[4])</button>
+            <button onclick="crearString()">Crear string (char[5])</button>
+            
+            <button onclick="crearStruct()">Crear Struct</button>
+            <button onclick="crearPuntero()">Puntero libre a int</button>
+            <button onclick="crearPunteroALast()" style="grid-column: span 2;">Crear puntero al último elemento</button>
+            
+            <button onclick="redimensionarEstructura()">Redimensionar</button>
+            <button onclick="limpiarMemoria()" style="grid-column: span 3;">Limpiar Memoria</button>
+
+            <div class="sizeof-container" style="grid-column: span 4; display: flex; align-items: center; justify-content: space-between; background: #2c2c2c; padding: 10px 15px; border-radius: 8px; border: 1px solid #444;">
+                <button onclick="calcularSizeofTotal()" style="background-color: #e74c3c; margin: 0; grid-column: span 1;">Memoria ocupada</button>
+                <span id="sizeofResult" style="font-family: monospace; font-size: 1.2rem; font-weight: bold; color: #2ecc71;">? bytes usados</span>
+            </div>
+        </div>
+
+        <div class="log" id="logPanel">Memoria inicializada...</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

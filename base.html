@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador en Construcción</title>
+    <link rel="stylesheet" href="global.css">
+</head>
+<body>
+    <main class="container base-page">
+        <h1 id="titulo-simulador">Simulador</h1>
+        <p>Esta herramienta está actualmente en desarrollo. ¡Vuelve pronto!</p>
+        <a href="index.html" class="btn-volver">Volver al Menú Principal</a>
+    </main>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const title = params.get('title');
+        if (title) {
+            document.getElementById('titulo-simulador').textContent = title;
+            document.title = title;
+        }
+    </script>
+</body>
+</html>

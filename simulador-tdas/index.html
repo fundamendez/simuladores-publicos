@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de TDAs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+</head>
+<body>
+    <a href="../index.html" class="btn-volver-sim">⬅ Volver al Menú</a>
+    
+    <div class="container">
+        <h1>Simulador de TDAs</h1>
+        
+        <div class="controls-panel">
+            <div class="control-group">
+                <label>Seleccionar Estructura:</label>
+                <button class="btn-alg" onclick="seleccionarTDA('lista')">Lista</button>
+                <button class="btn-alg" onclick="seleccionarTDA('cola')">Cola</button>
+                <button class="btn-alg" onclick="seleccionarTDA('pila')">Pila</button>
+            </div>
+        </div>
+
+        <div id="operations-panel" class="controls-panel" style="display: none;">
+            
+            <div class="control-group">
+                <label for="tda-value">Valor:</label>
+                <input type="number" id="tda-value" value="10">
+            </div>
+
+            <div class="control-group" id="group-pos" style="display: none;">
+                <label for="tda-pos">Posición:</label>
+                <input type="number" id="tda-pos" value="0" min="0">
+            </div>
+
+            <div class="control-group algorithms" id="ops-buttons">
+            </div>
+        </div>
+
+        <div id="playback-controls" class="playback-controls" style="display: none;">
+            <button class="btn-play" id="btn-auto" onclick="toggleAutoPlay()">▶ Auto Ejecutar</button>
+            <button class="btn-step" id="btn-prev" onclick="pasoPrevio()">⏮ Paso Previo</button>
+            <button class="btn-step" id="btn-next" onclick="pasoSiguiente()">Siguiente Paso ⏭</button>
+            <button class="btn-cancel" onclick="cancelarEjecucion()">⏹ Cancelar</button>
+        </div>
+
+        <div id="status-message" class="status-message">Selecciona un TDA para comenzar.</div>
+
+        <div id="tda-container" class="tda-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
