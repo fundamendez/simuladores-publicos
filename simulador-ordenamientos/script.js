@@ -236,26 +236,40 @@ function calcularSeleccion(arr) {
 function calcularInsercion(arr) {
     let f = [];
     let n = arr.length;
-    let ordenados = [0];
-    guardarFrame(f, arr, [], [], ordenados);
+    guardarFrame(f, arr, [], [], [0]);
     for (let i = 1; i < n; i++) {
         let j = i;
-        guardarFrame(f, arr, [], [j], ordenados);
+        const getOrdenados = (posViajero) => {
+            let ord = [];
+            for(let k = 0; k <= i; k++) {
+                if(k !== posViajero) ord.push(k);
+            }
+            
+            return ord;
+        };
+
+        guardarFrame(f, arr, [j], [], getOrdenados(j));
         while (j > 0) {
-            guardarFrame(f, arr, [j - 1, j], [], ordenados);
+            guardarFrame(f, arr, [j - 1, j], [], getOrdenados(j));
             if (arr[j - 1] > arr[j]) {
                 let temp = arr[j];
                 arr[j] = arr[j - 1];
                 arr[j - 1] = temp;
-                guardarFrame(f, arr, [], [j], ordenados);
+                j--;
+                guardarFrame(f, arr, [j], [], getOrdenados(j));
             } else {
-                // Si el de la izquierda es menor o igual, ya encontramos su lugar definitivo.
+                // Si el de la izquierda es menor o igual, encontramos su lugar definitivo.
                 break; 
             }
         }
         
-        ordenados.push(i);
-        guardarFrame(f, arr, [], [], ordenados);
+        let ordenadosFinal = [];
+        for(let k = 0; k <= i; k++) ordenadosFinal.push(k);
+        guardarFrame(f, arr, [], [], ordenadosFinal);
     }
+    
+    let todos = [];
+    for(let k = 0; k < n; k++) todos.push(k);
+    guardarFrame(f, arr, [], [], todos);
     return f;
 }
