@@ -237,25 +237,25 @@ function calcularInsercion(arr) {
     let f = [];
     let n = arr.length;
     let ordenados = [0];
-
     guardarFrame(f, arr, [], [], ordenados);
-
     for (let i = 1; i < n; i++) {
-        let key = arr[i];
-        let j = i - 1;
-        
-        guardarFrame(f, arr, [], [i], ordenados);
-
-        while (j >= 0 && arr[j] > key) {
-            guardarFrame(f, arr, [j], [], ordenados);
-            arr[j + 1] = arr[j];
-            guardarFrame(f, arr, [], [j + 1], ordenados);
-            j = j - 1;
+        let j = i;
+        guardarFrame(f, arr, [], [j], ordenados);
+        while (j > 0) {
+            guardarFrame(f, arr, [j - 1, j], [], ordenados);
+            if (arr[j - 1] > arr[j]) {
+                let temp = arr[j];
+                arr[j] = arr[j - 1];
+                arr[j - 1] = temp;
+                guardarFrame(f, arr, [], [j], ordenados);
+            } else {
+                // Si el de la izquierda es menor o igual, ya encontramos su lugar definitivo.
+                break; 
+            }
         }
-        arr[j + 1] = key;
         
         ordenados.push(i);
-        guardarFrame(f, arr, [], [j + 1], ordenados);
+        guardarFrame(f, arr, [], [], ordenados);
     }
     return f;
 }
