@@ -180,9 +180,9 @@ function guardarFrame(arr, targetIndex, statusClass, msj) {
 function renderizarNodos(arr, target = -1, cssClass = '') {
     contenedorTDA.innerHTML = '';
     arr.forEach((valor, index) => {
-        // 1. Dibujar el Nodo
         const nodo = document.createElement('div');
         nodo.classList.add('tda-node');
+        nodo.style.setProperty('--hue', (valor * 37) % 360);
         nodo.textContent = valor;
         let etiqueta = `Idx: ${index}`;
         if (tdaActual === 'pila' && index === arr.length - 1) etiqueta = 'Tope';

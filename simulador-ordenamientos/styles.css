@@ -131,7 +131,7 @@ input[type="number"] {
 
 .bar {
     width: 40px;
-    background-color: #00f3ff;
+    background-color: hsl(var(--hue, 182), 100%, 50%);
     border-radius: 4px 4px 0 0;
     display: flex;
     justify-content: center;
