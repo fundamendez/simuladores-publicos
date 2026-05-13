@@ -75,3 +75,18 @@ body {
     text-align: center;
     padding-top: 5rem;
 }
+
+/* =================
+   DISEÑO RESPONSIVO
+   ================= */
+@media (max-width: 600px) {
+    .grid-simuladores {
+        grid-template-columns: 1fr;
+    }
+    .header {
+        padding: 2rem 1rem;
+    }
+    .container {
+        margin: 1.5rem auto;
+    }
+}
