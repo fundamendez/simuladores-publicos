@@ -1,5 +1,5 @@
 /* =============================
-   ESTILOS GENERALES Y VARIABLES
+   ESTILOS GLOBALES Y NAVEGACIÓN
    ============================= */
 :root {
     --bg-color: #ffffff;
@@ -16,12 +16,35 @@
 
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg-color);
+    background-color: #FFF9E6;
     color: var(--text-main);
     margin: 0;
     padding: 20px;
     display: flex;
     justify-content: center;
+}
+
+.btn-volver-sim {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    color: #333333;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.btn-volver-sim:hover {
+    background-color: #f8f9fa;
+    border-color: #5DADE2;
+    color: #5DADE2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -243,9 +266,9 @@ input:checked + .slider:before {
     font-style: italic;
 }
 
-/* =================================================
+/* ================================================
    ESTILOS PARA VARIABLES INDIVIDUALES (INT Y CHAR)
-   ================================================= */
+   ================================================ */
 .cell.single-int {
     border-color: var(--accent-green);
     background-color: rgba(244, 208, 63, 0.15);
@@ -254,6 +277,24 @@ input:checked + .slider:before {
 .cell.single-char {
     border-color: var(--accent-yellow);
     background-color: rgba(255, 105, 180, 0.15);
+}
+
+/* ============================================================
+   SOBREESCRIBIENDO ESTILOS PARA EL SEGMENTO DE MEMORIA OCUPADA
+   ============================================================ */
+.sizeof-container {
+    background-color: #FFF9E6 !important;
+    border-color: #F4D03F !important;
+}
+
+.sizeof-container button {
+    background-color: #FF69B4 !important;
+    color: white !important;
+    border: none !important;
+}
+
+#sizeofResult {
+    color: #5DADE2 !important;
 }
 
 /* =================
@@ -276,27 +317,4 @@ input:checked + .slider:before {
     .cell { padding: 5px; }
     .cell .value { font-size: 0.9rem; }
     .cell .address { font-size: 0.65rem; }
-}
-
-.btn-volver-sim {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #ffffff;
-    color: #333333;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 14px;
-    border: 1px solid #cccccc;
-    transition: all 0.2s ease;
-    z-index: 1000;
-}
-
-.btn-volver-sim:hover {
-    background-color: #f8f9fa;
-    border-color: #5DADE2;
-    color: #5DADE2;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

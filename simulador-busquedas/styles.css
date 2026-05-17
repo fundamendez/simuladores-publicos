@@ -3,7 +3,7 @@
    ============================= */
 body {
     font-family: sans-serif;
-    background-color: #ffffff;
+    background-color: #FFF9E6;
     color: #333333;
     margin: 0;
     padding: 0;
@@ -179,7 +179,7 @@ input[type="number"] {
    =========================== */
 .status-message {
     font-size: 1.2rem;
-    color: #555555;
+    color: #E91E63;
     margin-bottom: 1rem;
     height: 1.5rem;
     font-weight: bold;
