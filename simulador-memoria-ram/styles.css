@@ -29,22 +29,30 @@ body {
     top: 20px;
     left: 20px;
     display: inline-block;
-    padding: 8px 16px;
-    background-color: #ffffff;
-    color: #333333;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: #FF69B4;
     text-decoration: none;
     border-radius: 6px;
-    font-size: 14px;
-    border: 1px solid #cccccc;
+    font-size: 21px;
+    border: 2px solid #FF69B4;
     transition: all 0.2s ease;
     z-index: 1000;
 }
 
 .btn-volver-sim:hover {
-    background-color: #f8f9fa;
-    border-color: #5DADE2;
-    color: #5DADE2;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 105, 180, 0.1); 
+    color: #E91E63; 
+    border-color: #E91E63;
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.2);
+}
+
+.logo-top-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 52px;
+    z-index: 1000;
 }
 
 .container {
@@ -317,4 +325,5 @@ input:checked + .slider:before {
     .cell { padding: 5px; }
     .cell .value { font-size: 0.9rem; }
     .cell .address { font-size: 0.65rem; }
+    .logo-top-right {display: none;}
 }
