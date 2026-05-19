@@ -271,6 +271,12 @@ input[type="number"] {
         text-align: center;
     }
 
+    .control-group label {
+        width: 100%;
+        display: block;
+        margin-bottom: 0.8rem;
+    }
+
     .algorithms, .search-group {
         border-left: none;
         border-top: 2px solid #444;

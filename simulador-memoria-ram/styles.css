@@ -334,7 +334,10 @@ input:checked + .slider:before {
         font-size: 13px;
     }
     body { padding: 10px; }
-    .container { padding: 15px; }
+    .container { 
+        padding: 15px; 
+        margin-top: 4rem;
+    }
     .controls { 
         display: grid; 
         grid-template-columns: 1fr; 
