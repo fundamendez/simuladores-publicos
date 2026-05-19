@@ -188,9 +188,13 @@ input[type="number"] {
 .status-message {
     font-size: 1.2rem;
     color: #E91E63;
-    margin-bottom: 1rem;
-    height: 1.5rem;
+    margin-bottom: 1.5rem;
+    min-height: 3rem;
+    height: auto;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bars-container {
@@ -244,6 +248,11 @@ input[type="number"] {
    DISEÑO RESPONSIVO
    ================= */
 @media (max-width: 768px) {
+    .btn-volver-sim {
+        padding: 7px 14px;
+        font-size: 13px;
+    }
+
     .container {
         margin-top: 5rem;
         padding: 0.5rem;
@@ -259,6 +268,7 @@ input[type="number"] {
         flex-wrap: wrap;
         justify-content: center;
         width: 100%;
+        text-align: center;
     }
 
     .algorithms, .search-group {
@@ -266,6 +276,10 @@ input[type="number"] {
         border-top: 2px solid #444;
         padding-left: 0;
         padding-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
     }
     
     .playback-controls {

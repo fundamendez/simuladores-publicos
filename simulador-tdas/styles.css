@@ -201,9 +201,13 @@ input[type="number"] {
 .status-message {
     font-size: 1.2rem;
     color: #E91E63;
-    margin-bottom: 1rem;
-    height: 1.5rem; 
+    margin-bottom: 1.5rem;
+    min-height: 3rem; 
+    height: auto;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tda-container {
@@ -325,10 +329,23 @@ input[type="number"] {
    DISEÑO RESPONSIVO
    ================= */
 @media (max-width: 768px) {
+    .btn-volver-sim {
+        padding: 7px 14px;
+        font-size: 13px;
+    }
     .container { margin-top: 5rem; padding: 0.5rem; }
     .controls-panel { flex-direction: column; gap: 1rem; padding: 1rem; }
-    .control-group { flex-wrap: wrap; justify-content: center; width: 100%; }
-    .algorithms { border-left: none; border-top: 2px solid #cccccc; padding-left: 0; padding-top: 1rem; }
+    .control-group { flex-wrap: wrap; justify-content: center; width: 100%; text-align: center; }
+    .algorithms { 
+        border-left: none; 
+        border-top: 2px solid #cccccc; 
+        padding-left: 0; 
+        padding-top: 1rem; 
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
     .playback-controls { flex-wrap: wrap; }
     .playback-controls button { flex: 1 1 auto; margin: 0.25rem !important; }
     .tda-container { justify-content: flex-start; }

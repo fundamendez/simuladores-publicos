@@ -121,22 +121,56 @@ function mostrarFlecha(fromIdx, toIdx) {
     const fromRect = gridCells[fromIdx].getBoundingClientRect();
     const toRect = gridCells[toIdx].getBoundingClientRect();
 
-    // Calcula los centros exactos de los bloques para trazar la línea.
     const startX = fromRect.left + (fromRect.width / 2) + window.scrollX;
     const startY = fromRect.top + (fromRect.height / 2) + window.scrollY;
-    const endX = toRect.left + (toRect.width / 2) + window.scrollX;
-    const endY = toRect.top + (toRect.height / 2) + window.scrollY;
 
     const arrow = document.getElementById('pointerArrow');
-    arrow.setAttribute('x1', startX);
-    arrow.setAttribute('y1', startY);
-    arrow.setAttribute('x2', endX);
-    arrow.setAttribute('y2', endY);
+
+    if (window.innerWidth <= 600) {
+        // Lógica para móvil: Recuadro fantasma y flecha corta.
+        let ghost = document.getElementById('ghost-target');
+        if (!ghost) {
+            ghost = document.createElement('div');
+            ghost.id = 'ghost-target';
+            ghost.className = 'ghost-box cell';
+            document.body.appendChild(ghost);
+        }
+        
+        const targetCell = memory[toIdx];
+        let displayVal = isHexMode ? formatHex(targetCell.value) : targetCell.value;
+        if (targetCell.dataType === 'char') {
+            displayVal = targetCell.value === '\\0' ? '<span class="string-null">\\0</span>' : `'${targetCell.value}'`;
+        }
+        
+        ghost.innerHTML = `<div class="address">${formatHex(targetCell.address)}</div><div class="value">${displayVal}</div>`;
+        ghost.style.display = 'block';
+        
+        // Posicionarlo justo arriba de la celda actual.
+        ghost.style.top = (fromRect.top + window.scrollY - 75) + 'px';
+        ghost.style.left = (fromRect.left + window.scrollX - 10) + 'px';
+
+        arrow.setAttribute('x1', startX);
+        arrow.setAttribute('y1', startY);
+        arrow.setAttribute('x2', startX);
+        arrow.setAttribute('y2', fromRect.top + window.scrollY - 10);
+    } else {
+        // Lógica normal para PC.
+        const endX = toRect.left + (toRect.width / 2) + window.scrollX;
+        const endY = toRect.top + (toRect.height / 2) + window.scrollY;
+
+        arrow.setAttribute('x1', startX);
+        arrow.setAttribute('y1', startY);
+        arrow.setAttribute('x2', endX);
+        arrow.setAttribute('y2', endY);
+    }
+    
     arrow.setAttribute('opacity', '1');
 }
 
 function ocultarFlecha() {
     document.getElementById('pointerArrow').setAttribute('opacity', '0');
+    const ghost = document.getElementById('ghost-target');
+    if (ghost) ghost.style.display = 'none';
 }
 
 /** ======================================

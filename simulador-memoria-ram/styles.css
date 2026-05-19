@@ -305,6 +305,20 @@ input:checked + .slider:before {
     color: #5DADE2 !important;
 }
 
+/* ================================
+   ESTILO PARA EL RECUADRO FANTASMA
+   ================================ */
+.ghost-box {
+    position: absolute;
+    border: 2px dashed #5DADE2 !important;
+    background-color: rgba(234, 242, 248, 0.95) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+    z-index: 1000;
+    pointer-events: none;
+    width: 50px;
+    padding: 5px !important;
+}
+
 /* =================
    DISEÑO RESPONSIVO
    ================= */
@@ -315,12 +329,20 @@ input:checked + .slider:before {
 }
 
 @media (max-width: 600px) {
+    .btn-volver-sim {
+        padding: 7px 14px;
+        font-size: 13px;
+    }
     body { padding: 10px; }
     .container { padding: 15px; }
-    .controls { grid-template-columns: repeat(2, 1fr); }
-    .controls button[style*="grid-column: span 2"],
-    .controls button[style*="grid-column: span 3"],
-    .sizeof-container { grid-column: span 2 !important; }
+    .controls { 
+        display: grid; 
+        grid-template-columns: 1fr; 
+    }
+    .controls button,
+    .sizeof-container { 
+        grid-column: 1 / -1 !important; 
+    }
     .sizeof-container { flex-direction: column; gap: 15px; }
     .cell { padding: 5px; }
     .cell .value { font-size: 0.9rem; }
