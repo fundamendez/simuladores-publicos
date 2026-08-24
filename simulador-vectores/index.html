@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Vectores</title>
-    <link rel="stylesheet" href="../global.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 </head>
@@ -17,34 +16,53 @@
         
         <div class="controls-panel">
             <div class="control-group">
-                <label>Valor:</label>
-                <input type="number" id="val-agregar" placeholder="Ej: 5">
-                <button class="btn-accion" onclick="agregar()">Agregar al Tope</button>
+                <label>Tamaño del vector:</label>
+                <input type="number" id="tam-vector" min="1" max="20" value="10" placeholder="Ej: 10"  style="width: 60px;">
+                <button class="btn-crear" onclick="crearVector()">Crear Vector</button>
+            </div>
+
+            <div class="algorithms">
+                <div class="control-group">
+                    <label>Valor:</label>
+                    <input type="number" id="val-agregar" placeholder="Ej: 5" disabled>
+                    <button class="btn-accion" id="btn-agregar" onclick="prepararAgregar()" disabled>Agregar al Tope</button>
+                </div>
             </div>
 
             <div class="algorithms">
                 <div class="control-group">
                     <label>Índice:</label>
-                    <input type="number" id="idx-operacion" placeholder="Idx" style="width: 60px;">
+                    <input type="number" id="idx-operacion" placeholder="Ej: 1" style="width: 60px;" disabled>
                     <label>Valor:</label>
-                    <input type="number" id="val-operacion" placeholder="Val" style="width: 60px;">
+                    <input type="number" id="val-operacion" placeholder="Ej: 3" style="width: 60px;" disabled>
                     
-                    <button class="btn-alg" onclick="insertar()">Insertar</button>
-                    <button class="btn-alg" onclick="eliminarOrdenado()">Elim. Ordenada</button>
-                    <button class="btn-alg" onclick="eliminarDesordenado()">Elim. Desordenada</button>
+                    <button class="btn-alg" id="btn-insertar" onclick="prepararInsertar()" disabled>Insertar (idx)</button>
+                    <button class="btn-alg" id="btn-elim-ord" onclick="prepararEliminarOrdenado()" disabled>Elim. Ordenada (idx)</button>
+                    <button class="btn-alg" id="btn-elim-des" onclick="prepararEliminarDesordenado()" disabled>Elim. Desordenada (idx)</button>
                 </div>
             </div>
 
             <div class="algorithms">
                 <div class="control-group">
-                    <input type="number" id="val-buscar" placeholder="Valor a buscar">
-                    <button class="btn-info" onclick="buscar()">Búsqueda Lineal</button>
+                    <input type="number" id="val-buscar" placeholder="Ej: 7" disabled>
+                    <button class="btn-info" id="btn-buscar" onclick="prepararBuscar()" disabled>Búsqueda Lineal</button>
                 </div>
             </div>
         </div>
 
+        <div id="playback-controls" class="playback-controls" style="display: none;">
+            <button class="btn-play" id="btn-auto" onclick="toggleAutoPlay()">▶ Auto Ejecutar</button>
+            <button class="btn-step" id="btn-prev" onclick="pasoPrevio()">⏮ Paso Previo</button>
+            <button class="btn-step" id="btn-next" onclick="pasoSiguiente()">Siguiente Paso ⏭</button>
+            <button class="btn-cancel" onclick="cancelarEjecucion()">⏹ Cancelar</button>
+        </div>
+
         <div class="status-message" id="status-message">
-            Vector inicializado. Tope actual: 0 | Capacidad Máxima: 10
+            Elegí el tamaño del vector y presioná "Crear Vector" para comenzar.
+        </div>
+
+        <div class="array-toolbar">
+            <button class="btn-toggle" id="btn-revelar" onclick="toggleBasura()" disabled>👁 Revelar elementos basura</button>
         </div>
         
         <div class="tda-container" id="array-wrapper">
