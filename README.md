@@ -10,5 +10,6 @@ Este hub reúne distintos entornos interactivos para visualizar en tiempo real y
 - **Emulador de Ordenamientos:** Simulador de los métodos de ordenamiento 'Burbujeo', 'Inserción' y 'Selección' en vectores. **[Link](https://fundamendez.github.io/simuladores-publicos/simulador-ordenamientos/index.html)**
 - **Simulador de Búsquedas:** Simulador de los métodos de búsqueda 'Lineal (Ordinaria)' y 'Binaria' en vectores. **[Link](https://fundamendez.github.io/simuladores-publicos/simulador-busquedas/index.html)**
 - **Simulador de TDAs:** Simulador de operaciones primitivas en 'Pila', 'Cola' y 'Lista'. **[Link](https://fundamendez.github.io/simuladores-publicos/simulador-tdas/index.html)**
+- **Simulador de Vectores:** Simulador del comportamiento y funcionamiento de los 'Vectores'. **[Link](https://fundamendez.github.io/simuladores-publicos/simulador-vectores/index.html)**
 
 🔗 **[Link al Centro de Simulación](https://fundamendez.github.io/simuladores-publicos/)**
