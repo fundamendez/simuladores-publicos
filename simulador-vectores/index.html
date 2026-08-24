@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Vectores</title>
+    <link rel="stylesheet" href="../global.css"> 
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="btn-volver-sim">← Volver al Menú</a>
+        <img src="../assets/img/fundamendez-logo.png" alt="FundaMendez" class="logo-top-right">
+    </header>
+
+    <main class="container">
+        <h1>Simulador de Vectores</h1>
+        
+        <div class="controls-panel">
+            <div class="control-group">
+                <input type="number" id="val-agregar" placeholder="Valor nuevo">
+                <button class="btn-accion" onclick="agregar()">Agregar al tope</button>
+            </div>
+
+            <div class="algorithms">
+                <div class="control-group">
+                    <input type="number" id="idx-insercion" placeholder="Índice">
+                    <input type="number" id="val-insercion" placeholder="Valor">
+                    <button class="btn-alg" onclick="insertar()">Insertar (Desplazando)</button>
+                </div>
+            </div>
+
+            <div class="algorithms">
+                <div class="control-group">
+                    <input type="number" id="idx-eliminar" placeholder="Índice a borrar">
+                    <button class="btn-alg" onclick="eliminarOrdenado()">Eliminación Ordenada</button>
+                    <button class="btn-alg" onclick="eliminarDesordenado()">Elim. Desordenada</button>
+                </div>
+            </div>
+
+            <div class="algorithms">
+                <div class="control-group">
+                    <input type="number" id="val-buscar" placeholder="Valor a buscar">
+                    <button class="btn-info" onclick="buscar()">Búsqueda Lineal</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-message" id="status-message">
+            Tope: <span id="tope-val" style="margin-left: 5px;">0</span> | Máximo: 10
+        </div>
+        
+        <div class="tda-container" id="array-wrapper">
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

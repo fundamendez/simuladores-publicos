@@ -1,0 +1,84 @@
+/* =========================================
+   ESTILOS ESPECÍFICOS: SIMULADOR DE VECTORES
+   ========================================= */
+#array-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 4px;
+    overflow-x: auto;
+    padding: 30px 20px;
+}
+
+.cell-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    border: 2px solid #5DADE2;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333333;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.index {
+    position: absolute;
+    top: -25px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #777777;
+}
+
+/* ===========================
+   ESTADOS VISUALES DEL VECTOR
+   ============================ */
+
+.cell.garbage {
+    background-color: #e0e0e0;
+    border-color: #cccccc;
+    color: #999999;
+    box-shadow: none;
+}
+
+.cell.highlight {
+    border-color: #F4D03F;
+    background-color: #fdfae6;
+    box-shadow: 0 0 15px rgba(244, 208, 63, 0.4);
+    transform: scale(1.1);
+}
+
+.cell.found {
+    border-color: #2ecc71;
+    background-color: #eafaf1;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+    transform: scale(1.1);
+}
+
+/* =================
+   DISEÑO RESPONSIVO
+   ================= */
+@media (max-width: 768px) {
+    .cell {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+    .index {
+        top: -20px;
+        font-size: 11px;
+    }
+    #array-wrapper {
+        justify-content: flex-start;
+    }
+}
