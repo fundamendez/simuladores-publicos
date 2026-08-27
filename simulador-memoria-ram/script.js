@@ -292,6 +292,31 @@ function crearVector() {
     log(`Vector int[4] (${totalBytes} bytes) creado desde ${formatHex(memory[startIdx].address)}`);
 }
 
+function crearString() {
+    limpiarEstilos();
+    let totalBytes = 5;
+    
+    let startIdx = obtenerCeldasLibresContiguas(totalBytes);
+    if (startIdx === -1) return log("Error: No hay bloques de 5 bytes libres.");
+    
+    ultimoAgregadoIdx = startIdx; 
+    
+    for (let i = 0; i < totalBytes; i++) { 
+        let idx = startIdx + i;
+        memory[idx].type = 'string';
+        memory[idx].dataType = 'char';
+        
+        if (i === totalBytes - 1) {
+            memory[idx].value = '\\0';
+        } else {
+            memory[idx].value = 'A';
+        }
+    }
+    
+    renderGrid();
+    log(`String char[5] (${totalBytes} bytes) creado desde ${formatHex(memory[startIdx].address)}`);
+}
+
 function crearPunteroALast() {
     if (ultimoAgregadoIdx === -1) return log("Error: Primero debes crear un elemento.");
     let structType = memory[ultimoAgregadoIdx].type;
